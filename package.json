@@ -1,13 +1,17 @@
 {
   "scripts": {
     "dev": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy --minify src/index.ts"
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:drop": "drizzle-kit drop"
   },
   "dependencies": {
+    "drizzle-orm": "^0.30.7",
     "hono": "^4.2.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
+    "drizzle-kit": "^0.20.14",
     "wrangler": "^3.47.0"
   }
 }

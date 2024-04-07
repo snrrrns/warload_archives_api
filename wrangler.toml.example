@@ -1,0 +1,9 @@
+name = "warload_achives_api"
+compatibility_date = "2023-12-01"
+main = "src/index.ts"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "{{ database_name }}"
+database_id = "{{ database_id }}"
+migrations_dir = "src/drizzle/migrations"
