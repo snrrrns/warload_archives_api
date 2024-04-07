@@ -75,8 +75,8 @@ const selectFigures = async (db: DrizzleD1Database, paramId: number) => {
 const selectFigureWeapons = async (db: DrizzleD1Database, figureId: number) => {
   return db
     .select({
-      name: weapons.name,
-      uniqueName: figureWeapons.uniqueName,
+      name: figureWeapons.uniqueName,
+      type: weapons.type,
     })
     .from(figureWeapons)
     .innerJoin(weapons, eq(figureWeapons.weaponId, weapons.id))

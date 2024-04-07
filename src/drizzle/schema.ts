@@ -25,7 +25,7 @@ export const countries = sqliteTable('countries', {
 
 export const weapons = sqliteTable('weapons', {
   id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
-  name: text('name').notNull().unique(),
+  type: text('type').notNull().unique(),
   createdAt: text('created_at')
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
