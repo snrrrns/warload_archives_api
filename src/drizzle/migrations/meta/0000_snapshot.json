@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "eaed45b1-85b0-49b7-bb2f-09fb28ecfa00",
+  "id": "443b1f4a-fe80-44fb-9388-efacb85ee810",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "abilities": {
@@ -159,53 +159,6 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "eras": {
-      "name": "eras",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "integer",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": true
-        },
-        "kind": {
-          "name": "kind",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": "CURRENT_TIMESTAMP"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": "CURRENT_TIMESTAMP"
-        }
-      },
-      "indexes": {
-        "eras_kind_unique": {
-          "name": "eras_kind_unique",
-          "columns": [
-            "kind"
-          ],
-          "isUnique": true
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
     "figure_details": {
       "name": "figure_details",
       "columns": {
@@ -223,12 +176,13 @@
           "notNull": true,
           "autoincrement": false
         },
-        "born_era_id": {
-          "name": "born_era_id",
-          "type": "integer",
+        "born_era": {
+          "name": "born_era",
+          "type": "text",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'AD'"
         },
         "born_year": {
           "name": "born_year",
@@ -245,12 +199,13 @@
           "autoincrement": false,
           "default": true
         },
-        "died_era_id": {
-          "name": "died_era_id",
-          "type": "integer",
+        "died_era": {
+          "name": "died_era",
+          "type": "text",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'AD'"
         },
         "died_year": {
           "name": "died_year",
@@ -306,32 +261,6 @@
           "tableTo": "figures",
           "columnsFrom": [
             "figure_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "figure_details_born_era_id_eras_id_fk": {
-          "name": "figure_details_born_era_id_eras_id_fk",
-          "tableFrom": "figure_details",
-          "tableTo": "eras",
-          "columnsFrom": [
-            "born_era_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "figure_details_died_era_id_eras_id_fk": {
-          "name": "figure_details_died_era_id_eras_id_fk",
-          "tableFrom": "figure_details",
-          "tableTo": "eras",
-          "columnsFrom": [
-            "died_era_id"
           ],
           "columnsTo": [
             "id"

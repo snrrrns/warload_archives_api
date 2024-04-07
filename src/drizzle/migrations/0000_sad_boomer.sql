@@ -20,29 +20,20 @@ CREATE TABLE `countries` (
 	`updated_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE `eras` (
-	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-	`kind` text NOT NULL,
-	`created_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL,
-	`updated_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL
-);
---> statement-breakpoint
 CREATE TABLE `figure_details` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	`figure_id` integer NOT NULL,
-	`born_era_id` integer,
+	`born_era` text DEFAULT 'AD' NOT NULL,
 	`born_year` integer,
 	`is_born_certain` integer DEFAULT true NOT NULL,
-	`died_era_id` integer,
+	`died_era` text DEFAULT 'AD' NOT NULL,
 	`died_year` integer,
 	`is_died_certain` integer DEFAULT true NOT NULL,
 	`portrait` text,
 	`episode` text NOT NULL,
 	`created_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	`updated_at` text DEFAULT CURRENT_TIMESTAMP NOT NULL,
-	FOREIGN KEY (`figure_id`) REFERENCES `figures`(`id`) ON UPDATE no action ON DELETE no action,
-	FOREIGN KEY (`born_era_id`) REFERENCES `eras`(`id`) ON UPDATE no action ON DELETE no action,
-	FOREIGN KEY (`died_era_id`) REFERENCES `eras`(`id`) ON UPDATE no action ON DELETE no action
+	FOREIGN KEY (`figure_id`) REFERENCES `figures`(`id`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
 CREATE TABLE `figure_militaries` (
@@ -105,7 +96,6 @@ CREATE TABLE `weapons` (
 );
 --> statement-breakpoint
 CREATE UNIQUE INDEX `countries_name_unique` ON `countries` (`name`);--> statement-breakpoint
-CREATE UNIQUE INDEX `eras_kind_unique` ON `eras` (`kind`);--> statement-breakpoint
 CREATE UNIQUE INDEX `militaries_name_unique` ON `militaries` (`name`);--> statement-breakpoint
 CREATE UNIQUE INDEX `series_name_unique` ON `series` (`name`);--> statement-breakpoint
 CREATE UNIQUE INDEX `weapons_name_unique` ON `weapons` (`name`);
