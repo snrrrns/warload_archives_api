@@ -64,6 +64,7 @@ const selectFigures = async (db: DrizzleD1Database, paramId: number) => {
       diedYear: figureDetails.diedYear,
       isDiedContain: figureDetails.isDiedCertain,
       country: countries.name,
+      episode: figureDetails.episode,
     })
     .from(figures)
     .innerJoin(figureDetails, eq(figures.id, figureDetails.figureId))
