@@ -1,17 +1,6 @@
 import { sql } from 'drizzle-orm';
 import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
 
-export const eras = sqliteTable('eras', {
-  id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
-  kind: text('kind').notNull().unique(),
-  createdAt: text('created_at')
-    .default(sql`CURRENT_TIMESTAMP`)
-    .notNull(),
-  updatedAt: text('updated_at')
-    .default(sql`CURRENT_TIMESTAMP`)
-    .notNull(),
-});
-
 export const series = sqliteTable('series', {
   id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
   name: text('name').notNull().unique(),
@@ -104,10 +93,14 @@ export const figureDetails = sqliteTable('figure_details', {
   figureId: integer('figure_id')
     .references(() => figures.id)
     .notNull(),
-  bornEraId: integer('born_era_id').references(() => eras.id),
+  bornEra: text('born_era', { enum: ['BC', 'AD'] })
+    .default('AD')
+    .notNull(),
   bornYear: integer('born_year'),
   isBornCertain: integer('is_born_certain', { mode: 'boolean' }).notNull().default(true),
-  diedEraId: integer('died_era_id').references(() => eras.id),
+  diedEra: text('died_era', { enum: ['BC', 'AD'] })
+    .default('AD')
+    .notNull(),
   diedYear: integer('died_year'),
   isDiedCertain: integer('is_died_certain', { mode: 'boolean' }).notNull().default(true),
   portrait: text('portrait'),
