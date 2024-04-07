@@ -1,4 +1,4 @@
-name = "warload_achives_api"
+name = "warload_archives_api"
 compatibility_date = "2023-12-01"
 main = "src/index.ts"
 

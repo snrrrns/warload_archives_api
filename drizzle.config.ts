@@ -6,6 +6,6 @@ export default {
   driver: 'd1',
   dbCredentials: {
     wranglerConfigPath: 'wrangler.toml',
-    dbName: 'warload_achives_db',
+    dbName: 'warload_archives_db',
   },
 } satisfies Config;
