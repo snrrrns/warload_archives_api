@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "443b1f4a-fe80-44fb-9388-efacb85ee810",
+  "id": "013c2bc7-a848-4f06-b61f-7dabedcfa398",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "abilities": {
@@ -180,7 +180,7 @@
           "name": "born_era",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false,
           "default": "'AD'"
         },
@@ -203,7 +203,7 @@
           "name": "died_era",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false,
           "default": "'AD'"
         },

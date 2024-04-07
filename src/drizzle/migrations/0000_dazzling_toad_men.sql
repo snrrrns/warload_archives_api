@@ -23,10 +23,10 @@ CREATE TABLE `countries` (
 CREATE TABLE `figure_details` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	`figure_id` integer NOT NULL,
-	`born_era` text DEFAULT 'AD' NOT NULL,
+	`born_era` text DEFAULT 'AD',
 	`born_year` integer,
 	`is_born_certain` integer DEFAULT true NOT NULL,
-	`died_era` text DEFAULT 'AD' NOT NULL,
+	`died_era` text DEFAULT 'AD',
 	`died_year` integer,
 	`is_died_certain` integer DEFAULT true NOT NULL,
 	`portrait` text,

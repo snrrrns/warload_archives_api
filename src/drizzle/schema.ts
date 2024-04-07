@@ -93,14 +93,10 @@ export const figureDetails = sqliteTable('figure_details', {
   figureId: integer('figure_id')
     .references(() => figures.id)
     .notNull(),
-  bornEra: text('born_era', { enum: ['BC', 'AD'] })
-    .default('AD')
-    .notNull(),
+  bornEra: text('born_era', { enum: ['BC', 'AD'] }).default('AD'),
   bornYear: integer('born_year'),
   isBornCertain: integer('is_born_certain', { mode: 'boolean' }).notNull().default(true),
-  diedEra: text('died_era', { enum: ['BC', 'AD'] })
-    .default('AD')
-    .notNull(),
+  diedEra: text('died_era', { enum: ['BC', 'AD'] }).default('AD'),
   diedYear: integer('died_year'),
   isDiedCertain: integer('is_died_certain', { mode: 'boolean' }).notNull().default(true),
   portrait: text('portrait'),
