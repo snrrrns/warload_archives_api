@@ -14,6 +14,14 @@ import { drizzle, DrizzleD1Database } from 'drizzle-orm/d1';
 import { eq } from 'drizzle-orm';
 import { Bindings } from '../../types/db';
 
+type Ability = {
+  leadership: number | null;
+  power: number;
+  intellect: number;
+  political: number | null;
+  charisma: number | null;
+};
+
 const app = new Hono<{ Bindings: Bindings }>();
 
 app.get('/:id', async (c) => {
@@ -29,10 +37,15 @@ app.get('/:id', async (c) => {
     const figureMilitaries = await selectFigureMilitaries(db, figure.id);
     const figureWeapons = await selectFigureWeapons(db, figure.id);
 
+    const medianAbility = computeMedianAbility(
+      abilities.map(({ seriesName, ...ability }) => ability)
+    );
+
     return c.json({
       figure: {
         ...figure,
-        abilities: abilities,
+        abilities,
+        medianAbility,
         militaries: figureMilitaries,
         weapons: figureWeapons,
       },
@@ -107,6 +120,32 @@ const selectFigureMilitaries = async (db: DrizzleD1Database, figureId: number) =
     .from(figureMilitaries)
     .innerJoin(militaries, eq(figureMilitaries.militaryId, militaries.id))
     .where(eq(figureMilitaries.figureId, figureId));
+};
+
+const computeMedianAbility = (abilities: Ability[]): Ability => {
+  const attributes: (keyof Ability)[] = [
+    'leadership',
+    'power',
+    'intellect',
+    'political',
+    'charisma',
+  ];
+
+  const [leadership, power, intellect, political, charisma] = attributes.map((attr) =>
+    median(abilities.map((ability) => ability[attr]))
+  );
+
+  return { leadership, power, intellect, political, charisma };
+};
+
+const median = (values: (number | null)[]) => {
+  const filteredValues = values.filter((value) => value !== null);
+  const sortedValues = filteredValues.slice().sort((a, b) => a - b);
+  const midIndex = Math.floor(sortedValues.length / 2);
+
+  return sortedValues.length % 2 === 0
+    ? Math.round((sortedValues[midIndex - 1] + sortedValues[midIndex]) / 2)
+    : Math.round(sortedValues[midIndex]);
 };
 
 export default app;
