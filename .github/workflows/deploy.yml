@@ -26,4 +26,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: wrangler deploy --minify src/index.ts
+          command: deploy --minify src/index.ts
