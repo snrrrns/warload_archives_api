@@ -13,17 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm install
+      - name: Create Toml File
+        run: |
+          echo 'name = "warload_archives_api"' >> wrangler.toml
+          echo 'compatibility_date = "2023-12-01"' >> wrangler.toml
+          echo 'main = "src/index.ts"' >> wrangler.toml
+          echo 'account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"' >> wrangler.toml
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: deploy --minify src/index.ts
