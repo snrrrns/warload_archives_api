@@ -18,7 +18,6 @@ jobs:
           echo 'name = "warload_archives_api"' >> wrangler.toml
           echo 'compatibility_date = "2023-12-01"' >> wrangler.toml
           echo 'main = "src/index.ts"' >> wrangler.toml
-          echo 'account_id = "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"' >> wrangler.toml
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
