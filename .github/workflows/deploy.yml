@@ -15,14 +15,16 @@ jobs:
 
       - name: Create Toml File
         run: |
-          echo 'name = "warload_archives_api"' >> wrangler.toml
-          echo 'compatibility_date = "2023-12-01"' >> wrangler.toml
-          echo 'main = "src/index.ts"' >> wrangler.toml
-          echo '[[d1_databases]]' >> wrangler.toml
-          echo 'binding = "DB"' >> wrangler.toml
-          echo 'database_name = "${{ secrets.D1_DB_NAME }}"' >> wrangler.toml
-          echo 'database_id = "${{ secrets.D1_DB_ID }}"' >> wrangler.toml
-          echo 'migrations_dir = "src/drizzle/migrations"' >> wrangler.toml
+          cat << EOF >> wrangler.toml
+          name = "warload_archives_api"
+          compatibility_date = "2023-12-01"
+          main = "src/index.ts"
+          [[d1_databases]]
+          binding = "DB"
+          database_name = "${{ secrets.D1_DB_NAME }}"
+          database_id = "${{ secrets.D1_DB_ID }}"
+          migrations_dir = "src/drizzle/migrations"
+          EOF
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
