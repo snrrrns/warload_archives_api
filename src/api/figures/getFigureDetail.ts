@@ -12,7 +12,7 @@ import {
 } from '../../drizzle/schema';
 import { drizzle, DrizzleD1Database } from 'drizzle-orm/d1';
 import { eq } from 'drizzle-orm';
-import { Bindings } from '../../types/db';
+import { Bindings } from '../../types/bindings';
 
 type Ability = {
   leadership: number | null;
@@ -77,6 +77,7 @@ const selectFigures = async (db: DrizzleD1Database, paramId: number) => {
       diedYear: figureDetails.diedYear,
       isDiedContain: figureDetails.isDiedCertain,
       country: countries.name,
+      portrait: figureDetails.portrait,
       episode: figureDetails.episode,
     })
     .from(figures)
