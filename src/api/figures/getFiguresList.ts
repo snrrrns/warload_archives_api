@@ -1,7 +1,8 @@
 import { Hono } from 'hono';
 import { drizzle, DrizzleD1Database } from 'drizzle-orm/d1';
+import { eq } from 'drizzle-orm';
 import { Bindings } from '../../types/bindings';
-import { figures } from '../../drizzle/schema';
+import { figures, figureDetails } from '../../drizzle/schema';
 
 const app = new Hono<{ Bindings: Bindings }>();
 
@@ -31,8 +32,10 @@ const selectFigures = async (db: DrizzleD1Database) => {
       lastNameKana: figures.lastNameKana,
       firstNameKana: figures.firstNameKana,
       courtesyNameKana: figures.courtesyNameKana,
+      portrait: figureDetails.portrait,
     })
-    .from(figures);
+    .from(figures)
+    .innerJoin(figureDetails, eq(figures.id, figureDetails.figureId));
 };
 
 export default app;
