@@ -3,7 +3,8 @@
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts",
     "db:generate": "drizzle-kit generate:sqlite",
-    "db:drop": "drizzle-kit drop"
+    "db:drop": "drizzle-kit drop",
+    "format": "npx prettier --write ."
   },
   "dependencies": {
     "drizzle-orm": "^0.30.7",
