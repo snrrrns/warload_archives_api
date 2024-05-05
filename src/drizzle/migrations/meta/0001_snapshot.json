@@ -86,12 +86,8 @@
           "name": "abilities_figure_id_figures_id_fk",
           "tableFrom": "abilities",
           "tableTo": "figures",
-          "columnsFrom": [
-            "figure_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["figure_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -99,12 +95,8 @@
           "name": "abilities_series_id_series_id_fk",
           "tableFrom": "abilities",
           "tableTo": "series",
-          "columnsFrom": [
-            "series_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["series_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -149,9 +141,7 @@
       "indexes": {
         "countries_name_unique": {
           "name": "countries_name_unique",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": true
         }
       },
@@ -259,12 +249,8 @@
           "name": "figure_details_figure_id_figures_id_fk",
           "tableFrom": "figure_details",
           "tableTo": "figures",
-          "columnsFrom": [
-            "figure_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["figure_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -327,12 +313,8 @@
           "name": "figure_militaries_figure_id_figures_id_fk",
           "tableFrom": "figure_militaries",
           "tableTo": "figures",
-          "columnsFrom": [
-            "figure_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["figure_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -340,12 +322,8 @@
           "name": "figure_militaries_military_id_militaries_id_fk",
           "tableFrom": "figure_militaries",
           "tableTo": "militaries",
-          "columnsFrom": [
-            "military_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["military_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -407,12 +385,8 @@
           "name": "figure_weapons_figure_id_figures_id_fk",
           "tableFrom": "figure_weapons",
           "tableTo": "figures",
-          "columnsFrom": [
-            "figure_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["figure_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -420,12 +394,8 @@
           "name": "figure_weapons_weapon_id_weapons_id_fk",
           "tableFrom": "figure_weapons",
           "tableTo": "weapons",
-          "columnsFrom": [
-            "weapon_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["weapon_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -515,12 +485,8 @@
           "name": "figures_country_id_countries_id_fk",
           "tableFrom": "figures",
           "tableTo": "countries",
-          "columnsFrom": [
-            "country_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["country_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -572,9 +538,7 @@
       "indexes": {
         "militaries_name_unique": {
           "name": "militaries_name_unique",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": true
         }
       },
@@ -583,12 +547,8 @@
           "name": "militaries_country_id_countries_id_fk",
           "tableFrom": "militaries",
           "tableTo": "countries",
-          "columnsFrom": [
-            "country_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["country_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -633,9 +593,7 @@
       "indexes": {
         "series_name_unique": {
           "name": "series_name_unique",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": true
         }
       },
@@ -680,9 +638,7 @@
       "indexes": {
         "weapons_type_unique": {
           "name": "weapons_type_unique",
-          "columns": [
-            "type"
-          ],
+          "columns": ["type"],
           "isUnique": true
         }
       },
