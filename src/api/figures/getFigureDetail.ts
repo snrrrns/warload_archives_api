@@ -37,7 +37,7 @@ app.get('/:id', async (c) => {
     const figureWeapons = await selectFigureWeapons(db, figure.id);
 
     const medianAbility = computeMedianAbility(
-      abilities.map(({ seriesName, ...ability }) => ability)
+      abilities.map(({ seriesName: _, ...ability }) => ability)
     );
 
     return c.json({
