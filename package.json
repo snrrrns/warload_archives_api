@@ -3,7 +3,15 @@
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts",
     "db:generate": "drizzle-kit generate:sqlite",
-    "db:drop": "drizzle-kit drop"
+    "db:drop": "drizzle-kit drop",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint --fix .",
+    "format": "npx prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*": "npm run format",
+    "*.{ts,tsx}": "npm run lint"
   },
   "dependencies": {
     "drizzle-orm": "^0.30.7",
@@ -11,7 +19,14 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
+    "@eslint/js": "^9.2.0",
     "drizzle-kit": "^0.20.14",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.1.0",
+    "husky": "^9.0.11",
+    "typescript-eslint": "^7.8.0",
     "wrangler": "^3.47.0"
   }
 }

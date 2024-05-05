@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { drizzle, DrizzleD1Database } from 'drizzle-orm/d1';
 import { eq } from 'drizzle-orm';
-import { Bindings } from '../../types/bindings';
+import { Bindings } from '../../bindings';
 import { figures, figureDetails } from '../../drizzle/schema';
 
 const app = new Hono<{ Bindings: Bindings }>();
