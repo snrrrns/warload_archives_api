@@ -12,7 +12,7 @@ import {
 } from '../../drizzle/schema';
 import { drizzle, DrizzleD1Database } from 'drizzle-orm/d1';
 import { eq } from 'drizzle-orm';
-import { Bindings } from '../../types/bindings';
+import { Bindings } from '../../bindings';
 
 type Ability = {
   leadership: number | null;
@@ -28,8 +28,7 @@ app.get('/:id', async (c) => {
   try {
     const paramId = parseInt(c.req.param('id'));
     const db = drizzle(c.env.DB);
-    const result = await selectFigures(db, paramId);
-    const figure = result.at(0);
+    const figure = (await selectFigures(db, paramId)).at(0);
 
     if (!figure) return c.json({ message: 'Figure not found.' }, 404);
 
