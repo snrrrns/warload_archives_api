@@ -5,8 +5,21 @@ import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default [
-  { ignores: ['node_modules', '.wrangler'] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
+  { ignores: ['node_modules', '.wrangler'] },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReactConfig,
