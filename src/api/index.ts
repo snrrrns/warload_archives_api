@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { Bindings } from '../types/bindings';
+import { Bindings } from '../bindings';
 import figureDetail from './figures/getFigureDetail';
 import figuresList from './figures/getFiguresList';
 
