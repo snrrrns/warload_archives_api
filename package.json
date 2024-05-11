@@ -7,7 +7,8 @@
     "lint": "npx eslint .",
     "lint:fix": "npx eslint --fix .",
     "format": "npx prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest --run"
   },
   "lint-staged": {
     "*": "npm run format",
@@ -27,6 +28,7 @@
     "globals": "^15.1.0",
     "husky": "^9.0.11",
     "typescript-eslint": "^7.8.0",
+    "vitest": "^1.6.0",
     "wrangler": "^3.47.0"
   }
 }
