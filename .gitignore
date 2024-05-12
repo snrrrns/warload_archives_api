@@ -4,6 +4,7 @@ dist
 .dev.vars
 init.sql
 wrangler.toml
+coverage
 
 # Change them to your taste:
 package-lock.json

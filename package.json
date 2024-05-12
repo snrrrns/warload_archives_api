@@ -8,7 +8,8 @@
     "lint:fix": "npx eslint --fix .",
     "format": "npx prettier --write .",
     "prepare": "husky",
-    "test": "vitest --run"
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
   },
   "lint-staged": {
     "*": "npm run format",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
     "@eslint/js": "^9.2.0",
+    "@vitest/coverage-v8": "^1.6.0",
     "drizzle-kit": "^0.20.14",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
