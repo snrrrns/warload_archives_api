@@ -28,10 +28,8 @@ const selectFigures = async (db: DrizzleD1Database) => {
       id: figures.id,
       lastName: figures.lastName,
       firstName: figures.firstName,
-      courtesyName: figures.courtesyName,
       lastNameKana: figures.lastNameKana,
       firstNameKana: figures.firstNameKana,
-      courtesyNameKana: figures.courtesyNameKana,
       portrait: figureDetails.portrait,
     })
     .from(figures)
